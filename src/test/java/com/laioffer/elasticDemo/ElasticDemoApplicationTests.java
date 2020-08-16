@@ -36,7 +36,7 @@ class ElasticDemoApplicationTests {
 
 	@Test
 	public void testInsert(){
-		Book book = new Book(2, "Harry Potter", "Jk.R");
+		Book book = new Book(2, "Jk.R", "Harry Potter");
 		bookRepository.index(book);
 	}
 	@Test
@@ -61,7 +61,7 @@ class ElasticDemoApplicationTests {
 	public void testUpdate() throws IOException {
 		Map<String, Object> doc = new HashMap<>();
 		doc.put("name" , "Harry Potter2");
-		UpdateRequest request = new UpdateRequest("test", "_doc", "1");
+		UpdateRequest request = new UpdateRequest("test", "_doc", "2");
 		request.doc(doc);
 
 		UpdateResponse update = client.update(request, RequestOptions.DEFAULT);
